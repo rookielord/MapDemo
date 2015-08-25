@@ -29,13 +29,13 @@ import com.zhd.mapdemo.R;
  * 此demo用来展示如何结合定位SDK实现定位，并使用MyLocationOverlay绘制定位位置 同时展示如何使用自定义图标绘制并点击时弹出泡泡
  *
  */
-public class LocationActivity extends Activity {
+public class BDLocationActivity extends Activity {
 
     // 定位相关
     LocationClient mLocClient;
     public MyLocationListenner myListener = new MyLocationListenner();
-    private LocationMode mCurrentMode;
-    BitmapDescriptor mCurrentMarker;
+    private LocationMode mCurrentMode;//定位状态，罗盘，普通，跟踪普通代表可以任意移动，跟随代表锁定当前
+    BitmapDescriptor mCurrentMarker;//
 
 
     MapView mMapView;
@@ -49,11 +49,12 @@ public class LocationActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SDKInitializer.initialize(getApplicationContext());
+        SDKInitializer.initialize(getApplicationContext());//加载jar类型包，不然xml中的标签不会被识别
         setContentView(R.layout.activity_bdlocation);
         requestLocButton = (Button) findViewById(R.id.btn_location);
         mCurrentMode = LocationMode.NORMAL;
         requestLocButton.setText("普通");
+        //设置监听，点击后显示到当前位置
         OnClickListener btnClickListener = new OnClickListener() {
             public void onClick(View v) {
                 switch (mCurrentMode) {
@@ -83,28 +84,28 @@ public class LocationActivity extends Activity {
         };
         requestLocButton.setOnClickListener(btnClickListener);
 
-        RadioGroup group = (RadioGroup) this.findViewById(R.id.radioGroup);
-        radioButtonListener = new OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == R.id.defaulticon) {
-                    // 传入null则，恢复默认图标
-                    mCurrentMarker = null;
-                    mBaiduMap
-                            .setMyLocationConfigeration(new MyLocationConfiguration(
-                                    mCurrentMode, true, null));
-                }
-                if (checkedId == R.id.myicon) {
-                    // 修改为自定义marker
-                    mCurrentMarker = BitmapDescriptorFactory
-                            .fromResource(R.drawable.icon_geo);
-                    mBaiduMap
-                            .setMyLocationConfigeration(new MyLocationConfiguration(
-                                    mCurrentMode, true, mCurrentMarker));
-                }
-            }
-        };
-        group.setOnCheckedChangeListener(radioButtonListener);
+//        RadioGroup group = (RadioGroup) this.findViewById(R.id.radioGroup);
+//        radioButtonListener = new OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(RadioGroup group, int checkedId) {
+//                if (checkedId == R.id.defaulticon) {
+//                    // 传入null则，恢复默认图标
+//                    mCurrentMarker = null;
+//                    mBaiduMap
+//                            .setMyLocationConfigeration(new MyLocationConfiguration(
+//                                    mCurrentMode, true, null));
+//                }
+//                if (checkedId == R.id.myicon) {
+//                    // 修改为自定义marker
+//                    mCurrentMarker = BitmapDescriptorFactory
+//                            .fromResource(R.drawable.icon_geo);
+//                    mBaiduMap
+//                            .setMyLocationConfigeration(new MyLocationConfiguration(
+//                                    mCurrentMode, true, mCurrentMarker));
+//                }
+//            }
+//        };
+//        group.setOnCheckedChangeListener(radioButtonListener);
 
         // 地图初始化
         mMapView = (MapView) findViewById(R.id.bmapView);

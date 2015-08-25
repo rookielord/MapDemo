@@ -56,12 +56,16 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 intent = new Intent(this,BaiduActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.btn_survey:
+            case R.id.btn_BDlocation:
                 intent=new Intent("com.zhd.bdlocation");
                 startActivity(intent);
                 break;
             case R.id.btn_coordinate:
                 intent=new Intent(this,CoordinateActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_survey:
+                intent=new Intent(this,SurveyActivity.class);
                 startActivity(intent);
                 break;
             default:

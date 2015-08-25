@@ -1,4 +1,4 @@
-package com.zhd.mapdemo;
+package com.zhd.mapdemo.activity;
 
 import android.app.Activity;
 import android.content.ContentResolver;
@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.zhd.mapdemo.R;
 import com.zhd.mapdemo.db.Curd;
 import com.zhd.mapdemo.model.Project;
 
@@ -20,7 +21,7 @@ import java.util.List;
 /**
  * Created by 2015032501 on 2015/8/12.
  */
-public class ProjectManage extends Activity implements View.OnClickListener {
+public class ProjectManageActivity extends Activity implements View.OnClickListener {
     private List<Project> projects = new ArrayList<Project>();
     private List<String> names;
     private Button btn_pro_add;

@@ -28,14 +28,14 @@
         android:layout_height="wrap_content"
         android:text="百度地图"/>
     <Button
-        android:id="@+id/btn_survey"
+        android:id="@+id/btn_BDlocation"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="百度地图定位"/>
     <Button
-        android:id="@+id/btn_gps"
+        android:id="@+id/btn_survey"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="自己GPS定位"/>
+        android:text="根据GPS获取坐标存入数据"/>
 
 </LinearLayout>
