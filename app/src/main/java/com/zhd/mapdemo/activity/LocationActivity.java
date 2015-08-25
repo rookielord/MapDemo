@@ -12,6 +12,7 @@ import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
+import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
@@ -36,6 +37,7 @@ public class LocationActivity extends Activity {
     private LocationMode mCurrentMode;
     BitmapDescriptor mCurrentMarker;
 
+
     MapView mMapView;
     BaiduMap mBaiduMap;
 
@@ -47,8 +49,9 @@ public class LocationActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_location);
-        requestLocButton = (Button) findViewById(R.id.button1);
+        SDKInitializer.initialize(getApplicationContext());
+        setContentView(R.layout.activity_bdlocation);
+        requestLocButton = (Button) findViewById(R.id.btn_location);
         mCurrentMode = LocationMode.NORMAL;
         requestLocButton.setText("普通");
         OnClickListener btnClickListener = new OnClickListener() {
