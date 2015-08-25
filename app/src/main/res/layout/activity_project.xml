@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_protitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="项目管理" />
+
+    <ListView
+        android:id="@+id/lv_project"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@id/tv_protitle">
+
+    </ListView>
+
+    <TextView
+        android:id="@+id/tv_proinfo"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@id/lv_project"
+        android:text="项目信息" />
+
+    <RelativeLayout
+        android:layout_below="@id/tv_proinfo"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp">
+
+        <EditText
+            android:id="@+id/et_proname"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp" />
+
+        <Button
+            android:id="@+id/btn_pro_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="right"
+            android:text="创建项目" />
+    </RelativeLayout>
+</RelativeLayout>
